@@ -1,0 +1,39 @@
+/************ RESET ****************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+:root {
+
+    /* color scheme  */
+
+    --bg-color: #022d30;
+    --alt-bg-color: #f80400;
+    --headers-color: #a83023;
+    --font-color: #f6a56e;
+}
+
+/************* COMMON ***********/
+h1, h2, h3, h4, h5, h6, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
