@@ -12,7 +12,6 @@ $movieFile = new Movie(
 );
 
 $bestMovie = $movieFile->getBestMovie();
-$trendingMovies = $movieFile->showMovieList();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,19 +49,32 @@ $trendingMovies = $movieFile->showMovieList();
 
     <!-- main  -->
     <main>
-        <div class="container text-center">
-            <h2 class="fs-5 mt-5">Trending Movies</h2>
-            <div class="row row-cols-3 ms-ctn">
+        <div class="container d-flex flex-column justify-content-center align-items-start">
+            <h2 class="fs-5">Trending Movies:</h2>
+            <div class="row row-cols-3 ms-ctn text-start">
                 <div class="col">
-                    <?php echo  ?>
+                    <ul>
+                    <?php foreach($movieFile->movieType1 as $movie) { ?>
+                        <li class="my-2"><?php echo $movie ?></li>
+                    <?php } ?>
+                    </ul>
                 </div>
                 <div class="col">
-                    <?php echo  ?>
+                <ul>
+                    <?php foreach($movieFile->movieType2 as $movie) { ?>
+                        <li class="my-2"><?php echo $movie ?></li>
+                    <?php } ?>
+                    </ul>
                 </div>
                 <div class="col">
-                    <?php echo  ?>
+                <ul>
+                    <?php foreach($movieFile->movieType3 as $movie) { ?>
+                        <li class="my-2"><?php echo $movie ?></li>
+                    <?php } ?>
+                    </ul>
                 </div>
             </div>
+            <h3 class="fs-6"><em>"<?php echo $bestMovie ?></em>"</h3>
         </div>
     </main>
     <!-- /main  -->
