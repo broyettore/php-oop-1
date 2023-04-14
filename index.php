@@ -8,6 +8,93 @@
 
 Devono essere istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà */
 
+class ActionMovie {
+    public $name;
+    public $genre;
+    public $lang;
+    public $description;
+    public $vote;
+
+    public function __construct(string $_name, string $_genre, string $_lang, string $_description, int $_vote)
+    {
+        $this->name = $_name;
+        $this->genre = $_genre;
+        $this->lang = $_lang;
+        $this->description = $_description;
+        $this->vote = $_vote;
+    }
+};
+
+class HorrorMovie {
+    public $name;
+    public $genre;
+    public $lang;
+    public $description;
+    public $vote;
+
+    public function __construct(string $_name, string $_genre, string $_lang, string $_description, int $_vote)
+    {
+        $this->name = $_name;
+        $this->genre = $_genre;
+        $this->lang = $_lang;
+        $this->description = $_description;
+        $this->vote = $_vote;
+    }
+};
+
+class AnimeMovie {
+    public $name;
+    public $genre;
+    public $lang;
+    public $description;
+    public $vote;
+
+    public function __construct(string $_name, string $_genre, string $_lang, string $_description, int $_vote)
+    {
+        $this->name = $_name;
+        $this->genre = $_genre;
+        $this->lang = $_lang;
+        $this->description = $_description;
+        $this->vote = $_vote;
+    }
+};
+
+class Movie {
+    public $movieType1;
+    public $movieType2;
+    public $movieType3;
+
+    public function __construct(ActionMovie $_movieType1, HorrorMovie $_movieType2, AnimeMovie $_movieType3,)
+    {
+        $this->movieType1 = $_movieType1;
+        $this->movieType2 = $_movieType2;
+        $this->movieType3 = $_movieType3;
+    }
+
+    public function getBestMovie() {
+        $movieList = [
+            $this->movieType1,
+            $this->movieType2,
+            $this->movieType3,
+        ];
+
+        foreach($movieList as $movie) {
+            if ($movie->vote > 4) {
+                return $movie->name . " is the best rated out of the movies selected";
+            }
+        }
+    }
+};
+
+$movieFile = new Movie(
+    new ActionMovie("Top Gun", "Action", "Eng", "good", 5), 
+    new HorrorMovie("Scary Movie", "Horror/Comedy", "Fr", "funny", 4), 
+    new AnimeMovie("Dragon Ball", "Anime", "Jp", "Exciting", 4)
+);
+
+$bestMovie = $movieFile->getBestMovie();
+
+var_dump($movieFile);
 
 
 ?>
