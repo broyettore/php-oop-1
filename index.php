@@ -1,90 +1,9 @@
 <?php
+require_once (__DIR__."/db.php/models/action.php");
+require_once (__DIR__."/db.php/models/horror.php");
+require_once (__DIR__."/db.php/models/anime.php");
+require_once (__DIR__."/db.php/models/movie.php");
 
-/*  Creare un file index.php in cui è definita una classe ‘Movie’ :
-
-* all’interno della classe sono dichiarate delle variabili d’istanza
-* all’interno della classe è definito un costruttore
-* all’interno della classe è definito almeno un metodo
-
-Devono essere istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà */
-
-class ActionMovie {
-    public $name;
-    public $genre;
-    public $lang;
-    public $description;
-    public $vote;
-
-    public function __construct(string $_name, string $_genre, string $_lang, string $_description, int $_vote)
-    {
-        $this->name = $_name;
-        $this->genre = $_genre;
-        $this->lang = $_lang;
-        $this->description = $_description;
-        $this->vote = $_vote;
-    }
-};
-
-class HorrorMovie {
-    public $name;
-    public $genre;
-    public $lang;
-    public $description;
-    public $vote;
-
-    public function __construct(string $_name, string $_genre, string $_lang, string $_description, int $_vote)
-    {
-        $this->name = $_name;
-        $this->genre = $_genre;
-        $this->lang = $_lang;
-        $this->description = $_description;
-        $this->vote = $_vote;
-    }
-};
-
-class AnimeMovie {
-    public $name;
-    public $genre;
-    public $lang;
-    public $description;
-    public $vote;
-
-    public function __construct(string $_name, string $_genre, string $_lang, string $_description, int $_vote)
-    {
-        $this->name = $_name;
-        $this->genre = $_genre;
-        $this->lang = $_lang;
-        $this->description = $_description;
-        $this->vote = $_vote;
-    }
-};
-
-class Movie {
-    public $movieType1;
-    public $movieType2;
-    public $movieType3;
-
-    public function __construct(ActionMovie $_movieType1, HorrorMovie $_movieType2, AnimeMovie $_movieType3,)
-    {
-        $this->movieType1 = $_movieType1;
-        $this->movieType2 = $_movieType2;
-        $this->movieType3 = $_movieType3;
-    }
-
-    public function getBestMovie() {
-        $movieList = [
-            $this->movieType1,
-            $this->movieType2,
-            $this->movieType3,
-        ];
-
-        foreach($movieList as $movie) {
-            if ($movie->vote > 4) {
-                return $movie->name . " is the best rated out of the movies selected";
-            }
-        }
-    }
-};
 
 $movieFile = new Movie(
     new ActionMovie("Top Gun", "Action", "Eng", "good", 5), 
@@ -93,10 +12,7 @@ $movieFile = new Movie(
 );
 
 $bestMovie = $movieFile->getBestMovie();
-
-var_dump($movieFile);
-
-
+$trendingMovies = $movieFile->showMovieList();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -115,6 +31,41 @@ var_dump($movieFile);
     <title>Php Oop</title>
 </head>
 <body>
+    <!-- header  -->
+    <header>
+        <div class="container p-2 d-flex justify-content-between align-items-center">
+            <div class="title d-flex align-items-center">
+                <h1 class="fs-3">OOP</h1>
+            </div>
+            <nav>
+                <ul class="d-flex  align-items-center">
+                    <li class="p-2 m-2">Services</li>
+                    <li class="p-2 m-2">About</li>
+                    <li class="p-2 m-2">Contact</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- /header  -->
+
+    <!-- main  -->
+    <main>
+        <div class="container text-center">
+            <h2 class="fs-5 mt-5">Trending Movies</h2>
+            <div class="row row-cols-3 ms-ctn">
+                <div class="col">
+                    <?php echo  ?>
+                </div>
+                <div class="col">
+                    <?php echo  ?>
+                </div>
+                <div class="col">
+                    <?php echo  ?>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /main  -->
 
     <!-- Bootstrap js  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
